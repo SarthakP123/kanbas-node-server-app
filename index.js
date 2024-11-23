@@ -1,6 +1,15 @@
-const express = require('express')
-const app = express()
-app.get('/hello', (req, res) => {res.send('Life is good!')})
+import express from 'express';
+
+const app = express();
+
+app.get('/hello', (req, res) => {
+  res.send('Life is good!');
+});
+
 app.get('/', (req, res) => {
-  res.send('Welcome to Full Stack Development!')})
-app.listen(4000)
+  res.send('Welcome to Full Stack Development!');
+});
+
+app.listen(4000, () => {
+  console.log('Server running on http://localhost:4000');
+});
