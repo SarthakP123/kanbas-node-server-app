@@ -1,0 +1,32 @@
+{
+  "name": "kanbas-node-server-app",
+  "version": "1.0.0",
+  "description": " Node.js HTTP Web server for the Kanbas application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SarthakP123/kanbas-react-web-app.git"
+  },
+  "keywords": [
+    "Node",
+    "REST",
+    "Server",
+    "HTTP",
+    "Web",
+    "Development",
+    "CS5610",
+    "CS4550"
+  ],
+  "author": "Sarthak Pokharel",
+  "license": "(ISC)",
+  "bugs": {
+    "url": "https://github.com/SarthakP123/kanbas-react-web-app/issues"
+  },
+  "homepage": "https://github.com/SarthakP123/kanbas-react-web-app#readme",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
