@@ -8,4 +8,5 @@ export default [
   { _id: "7", user: "789", course: "RS102" },
   { _id: "8", user: "890", course: "RS102" },
   { _id: "9", user: "123", course: "RS102" },
+  { _id: "10", user: "123", course: "RS103" }
 ];
