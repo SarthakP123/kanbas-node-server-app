@@ -1,6 +1,7 @@
-import Database from "../Database/index.js";
+import model from "./model.js";
+
 export function findAllCourses() {
-    return Database.courses;
+    return model.find();
 }
 export function findCoursesForEnrolledUser(userId) {
     const { courses, enrollments } = Database;
@@ -9,18 +10,13 @@ export function findCoursesForEnrolledUser(userId) {
     return enrolledCourses;
 }
 export function createCourse(course) {
-    const newCourse = { ...course, _id: Date.now().toString() };
-    Database.courses = [...Database.courses, newCourse];
-    return newCourse;
-}
-export function deleteCourse(courseId) {
-    const { courses, enrollments } = Database;
-    Database.courses = courses.filter((course) => course._id !== courseId);
-    Database.enrollments = enrollments.filter((enrollment) => enrollment.course !== courseId);
+    delete course._id;
+ return model.create(course);
 }
 export function updateCourse(courseId, courseUpdates) {
-    const { courses } = Database;
-    const course = courses.find((course) => course._id === courseId);
-    Object.assign(course, courseUpdates);
-    return course;
+    return model.updateOne({ _id: courseId }, { $set: courseUpdates });
 }
+export function deleteCourse(courseId) {
+    return model.deleteOne({ _id: courseId });
+   }
+   
