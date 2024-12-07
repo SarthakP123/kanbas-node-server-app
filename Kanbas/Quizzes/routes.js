@@ -15,10 +15,17 @@ export default function QuizRoutes(app) {
         }
       };
 
-  const findQuizzesForCourse = async (req, res) => {
-    const quizzes = await dao.findQuizzesForCourse(req.params.courseId);
-    res.json(quizzes);
-  };
+      const findQuizzesForCourse = async (req, res) => {
+        try {
+          const quizzes = await dao.findQuizzesForCourse(
+            req.params.courseId,
+            req.query.role // Add role as a query parameter
+          );
+          res.json(quizzes);
+        } catch (error) {
+          res.status(500).json({ error: error.message });
+        }
+      };
 
   const findQuizById = async (req, res) => {
     try {

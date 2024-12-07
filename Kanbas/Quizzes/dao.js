@@ -6,8 +6,17 @@ export const createQuiz = (quiz) => {
   return model.create(quiz);
 };
 
-export const findQuizzesForCourse = (courseId) => {
-  return model.find({ courseId });
+export const findQuizzesForCourse = async (courseId, userRole) => {
+  if (userRole === "FACULTY") {
+    // Faculty sees all quizzes
+    return model.find({ courseId });
+  } else {
+    // Students only see published quizzes
+    return model.find({ 
+      courseId,
+      published: true 
+    });
+  }
 };
 
 export const findQuizById = (quizId) => {
